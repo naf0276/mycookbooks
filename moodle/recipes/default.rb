@@ -9,3 +9,4 @@ cp -rf * /var/www
 chgrp -R apache /var/www
 chmod -R g+w /var/www
 EOH
+end
