@@ -1,6 +1,8 @@
 bash "setup_toodle" do
 code <<-EOH
+chkconfig rpcbind on
 chkconfig nfs on
+service rpcbind start
 service nfs start
 mkdir /tmp/toodle
 cd /tmp/toodle
