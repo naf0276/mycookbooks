@@ -1,6 +1,5 @@
-include_recipe "php"
-node["php"]["directives"] = {:upload_max_filesize => '100M'}
-node["php"]["directives"] = {:post_max_size => '100M'}
+default[:php][:upload_max_filesize] = '100M'
+default[:php][:post_max_size] = '100M'
 
 
 
