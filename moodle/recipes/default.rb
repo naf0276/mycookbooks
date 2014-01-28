@@ -13,7 +13,7 @@ cd s3fs-1.74/
 ./configure --prefix=/usr
 make
 make install 
-echo 'AKIAJJOMA3CAE74KMRAQ:2/d78bdutgKOLL7CurywxV9zHGjIZC9S86ZyFjaz' /etc/passwd-s3fs
+echo 'AKIAJJOMA3CAE74KMRAQ:2/d78bdutgKOLL7CurywxV9zHGjIZC9S86ZyFjaz' > /etc/passwd-s3fs
 chmod 600 /etc/passwd-s3fs
 mkdir /tmp/toodle
 cd /tmp/toodle
