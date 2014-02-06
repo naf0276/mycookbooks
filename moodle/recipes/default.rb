@@ -23,7 +23,7 @@ cp -rf * /var/www
 rm -rf /var/www/moodledata
 # mount 172.31.2.24:/moodledata /var/www/moodledata
 mkdir /mdata
-s3fs moodlestore /mdata
+s3fs moodlestore -o allow_other /mdata
 ln -s /mdata/moodledata /var/www/moodledata
 chgrp -R apache /var/www
 chmod -R g+w /var/www
