@@ -22,6 +22,7 @@ tar xf toodle-site.tgz
 cp -rf * /var/www
 # mount 172.31.2.24:/moodledata /var/www/moodledata
 s3fs s3moodlestore /var/www/moodledata
+echo "/var/www/moodledata"
 chgrp -R apache /var/www
 chmod -R g+w /var/www
 EOH
@@ -32,5 +33,5 @@ template "#{node[:apache][:dir]}/sites-enabled/toodle" do
   owner 'root'
   group 'root'
   mode 0644
-  notifies :run, resources(:execute => 'logdir_existence_and_restart_apache2')
+  notifies :restart, resources(:service => 'httpd')
 end
