@@ -21,10 +21,17 @@ wget https://s3-ap-southeast-2.amazonaws.com/rpw-src/toodle/toodle-site.tgz
 tar xf toodle-site.tgz
 cp -rf * /var/www
 rm -rf /var/www/moodledata
+mkdir /var/www/moodledata
+chgrp apache /var/www/moodledata
+chmod g+rw /var/www/moodledata
+
 # mount 172.31.2.24:/moodledata /var/www/moodledata
 mkdir /mdata
 s3fs moodlestore -o allow_other /mdata
-ln -s /mdata/moodledata /var/www/moodledata
+#ln -s /mdata/moodledata /var/www/moodledata
+ln -s /mdata/moodledata/filedir /var/www/moodledata/filedir
+ln -s /mdata/moodledata/lang /var/www/moodledata/lang
+
 chgrp -R apache /var/www
 chmod -R g+w /var/www
 EOH
