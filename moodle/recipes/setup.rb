@@ -14,16 +14,23 @@ cd s3fs-1.74/
 make
 make install
 
-# need to copy from secured s3 bucket to /etc/passwd-s3fs
+# Get s3 bucket key
+wget https://s3-ap-southeast-2.amazonaws.com/rpwawsauth/moodle/passwd-s3fs.txt
+mv passwd-s3fs.txt /etc/passwd-s3fs
+chmod 600 /etc/passwd-s3fs
 
+# Get and setup moodle site files
 mkdir /tmp/toodle
 cd /tmp/toodle
+wget https://s3-ap-southeast-2.amazonaws.com/rpw-src/toodle/toodle-site.tgz
 tar xf toodle-site.tgz
 cp -rf * /var/www
 rm -rf /var/www/moodledata
 mkdir /var/www/moodledata
 chgrp apache /var/www/moodledata
 chmod g+rw /var/www/moodledata
+
+# Setup moodledata area
 mkdir /mdata
 ln -s /mdata/moodledata/filedir /var/www/moodledata/filedir
 ln -s /mdata/moodledata/lang /var/www/moodledata/lang
