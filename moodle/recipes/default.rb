@@ -16,6 +16,8 @@ make install
 
 # need to copy from secured s3 bucket to /etc/passwd-s3fs
 
+aws --region "ap-southeast-2" s3 cp s3://rpwawsauth/moodle/passwd-s3fs.txt /etc/passwd-s3fs
+
 chmod 600 /etc/passwd-s3fs
 mkdir /tmp/toodle
 cd /tmp/toodle
