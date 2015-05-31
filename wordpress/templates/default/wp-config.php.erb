@@ -105,3 +105,10 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+
+/**
+* redis client settings
+define('WP_REDIS_BACKEND_HOST', <%= @redisnode %>);
+define('WP_REDIS_BACKEND_PORT', 6379);
+
+
